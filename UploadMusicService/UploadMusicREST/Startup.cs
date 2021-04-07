@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -10,6 +11,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using UploadMusicModels;
+using UploadMusicDL;
+
 
 namespace UploadMusicREST
 {
@@ -31,6 +35,10 @@ namespace UploadMusicREST
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "UploadMusicREST", Version = "v1" });
             });
+
+            services.AddDbContext<UploadMusicDBContext>(options => options.UseNpgsql(Configuration.GetConnectionString("UploadMusicDB")));
+            services.AddScoped<IUploadMusicRepoDB, UploadMusicRepoDB>();
+            //services.AddScoped<IUploadMusicBL, UploadMusicBL>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
