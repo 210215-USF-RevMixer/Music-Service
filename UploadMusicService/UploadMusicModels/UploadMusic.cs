@@ -17,15 +17,105 @@ namespace UploadMusicModels
         private bool isLocked;
 
         public int Id { get; set; }
-        public int UserId { get; set; }
-        public string MusicFilePath { get; set; }
-        public string Name { get; set; }
-        public DateTime UploadDate { get; set; }
-        public int Likes { get; set; }
-        public int Plays { get; set; }
-        public bool IsPrivate { get; set; }
-        public bool IsApproved { get; set; }
-        public bool IsLocked { get; set; }
+        public int UserId { 
+            get { return userId; } 
+            set
+            {
+                if (value.GetType() != typeof(int))
+                {
+                    throw new ArgumentException("value");
+                }
+                userId = value;
+            }
+        }
+        public string MusicFilePath {
+            get { return musicFilePath; }
+            set
+            {
+                if (value == null || String.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentNullException("value");
+                }
+                musicFilePath = value;
+            }
+        }
+        public string Name {
+            get { return name; }
+            set
+            {
+                if (value == null || String.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentNullException("value");
+                }
+                name = value;
+            }
+        }
+        public DateTime UploadDate {
+            get { return uploadDate; }
+            set
+            {
+                if (value.GetType() != typeof(DateTime))
+                {
+                    throw new ArgumentException("value");
+                }
+                uploadDate = value;
+            }
+        }
+        public int Likes {
+            get { return likes; }
+            set
+            {
+                if (value.GetType() != typeof(int))
+                {
+                    throw new ArgumentException("value");
+                }
+                likes = value;
+            }
+        }
+        public int Plays {
+            get { return plays; }
+            set
+            {
+                if (value.GetType() != typeof(int))
+                {
+                    throw new ArgumentException("value");
+                }
+                plays = value;
+            }
+        }
+        public bool IsPrivate {
+            get { return isPrivate; }
+            set
+            {
+                if (value.GetType() != typeof(bool))
+                {
+                    throw new ArgumentException("value");
+                }
+                isPrivate = value;
+            }
+        }
+        public bool IsApproved {
+            get { return isApproved; }
+            set
+            {
+                if (value.GetType() != typeof(bool))
+                {
+                    throw new ArgumentException("value");
+                }
+                isApproved = value;
+            }
+        }
+        public bool IsLocked {
+            get { return isLocked; }
+            set
+            {
+                if (value.GetType() != typeof(bool))
+                {
+                    throw new ArgumentException("value");
+                }
+                isLocked = value;
+            }
+        }
 
     }
 }
