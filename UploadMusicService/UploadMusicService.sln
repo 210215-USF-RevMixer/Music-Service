@@ -18,6 +18,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UploadMusicREST", "UploadMu
 		{096481C3-4754-4E9F-9E66-D6278808742B} = {096481C3-4754-4E9F-9E66-D6278808742B}
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UploadMusicTest", "UploadMusicTest\UploadMusicTest.csproj", "{7E2727C0-D77D-449E-B033-674D9019AF61}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +42,10 @@ Global
 		{CFB509B4-CA92-48B5-97F2-952E1F814AA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CFB509B4-CA92-48B5-97F2-952E1F814AA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CFB509B4-CA92-48B5-97F2-952E1F814AA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E2727C0-D77D-449E-B033-674D9019AF61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E2727C0-D77D-449E-B033-674D9019AF61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E2727C0-D77D-449E-B033-674D9019AF61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E2727C0-D77D-449E-B033-674D9019AF61}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
