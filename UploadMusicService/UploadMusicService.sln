@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31005.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UploadMusicService", "WebApplication1\UploadMusicService.csproj", "{249A0816-0745-4319-8ABC-9FCCF51418BC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UploadMusicREST", "WebApplication1\UploadMusicREST.csproj", "{249A0816-0745-4319-8ABC-9FCCF51418BC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UploadMusicModels", "UploadMusicModels\UploadMusicModels.csproj", "{D8EA414D-38CA-494B-9793-CE5FE004F782}"
 EndProject
