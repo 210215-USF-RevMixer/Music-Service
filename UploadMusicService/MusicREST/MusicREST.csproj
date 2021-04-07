@@ -20,9 +20,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\UploadMusicModels\UploadMusicModels.csproj" />
-    <ProjectReference Include="..\UploadMusicDL\UploadMusicDL.csproj" />
-	<ProjectReference Include="..\UploadMusicBL\UploadMusicBL.csproj" />
+    <ProjectReference Include="..\UploadMusicModels\MusicModels.csproj" />
+    <ProjectReference Include="..\UploadMusicDL\MusicDL.csproj" />
+	<ProjectReference Include="..\UploadMusicBL\MusicBL.csproj" />
   </ItemGroup>
 
 </Project>
