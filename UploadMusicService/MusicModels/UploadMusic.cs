@@ -12,6 +12,8 @@ namespace MusicModels
         private DateTime uploadDate;
         private int likes;
         private int plays;
+        private ICollection<MusicPlaylist> musicPlaylists;
+        private ICollection<Comments> comments;
         private bool isPrivate;
         private bool isApproved;
         private bool isLocked;
@@ -116,6 +118,7 @@ namespace MusicModels
                 isLocked = value;
             }
         }
-
+        public ICollection<MusicPlaylist> MusicPlaylists { get; set; }
+        public ICollection<Comments> Comments { get; set; }
     }
 }
