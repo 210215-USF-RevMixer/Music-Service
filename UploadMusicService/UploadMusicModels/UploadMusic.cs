@@ -15,9 +15,6 @@ namespace MixerModels
         private bool isPrivate;
         private bool isApproved;
         private bool isLocked;
-        private ICollection<MusicPlaylist> musicPlaylists;
-        private ICollection<Comments> comments;
-        private UriParser user;
 
         public int Id { get; set; }
         public int UserId { get; set; }
