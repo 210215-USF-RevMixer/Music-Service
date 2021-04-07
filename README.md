@@ -8,14 +8,6 @@ Get / Post| Get / Put / Delete
 ----|------
 /api/UploadMusic | /api/UploadMusic/{id}
 
-
-### Requirements
-
-### Setup
-
-### Testing
-
-### Configuration
 #### Model Properties
 DataType | Variable
 ----|----
@@ -29,6 +21,15 @@ int|Plays
 bool|IsPrivate
 bool|IsApproved
 bool|IsLocked
+
+### Requirements
+
+### Setup
+
+### Testing
+
+### Configuration
+
 
 
 
