@@ -21,6 +21,7 @@
   <ItemGroup>
     <ProjectReference Include="..\UploadMusicModels\UploadMusicModels.csproj" />
     <ProjectReference Include="..\UploadMusicDL\UploadMusicDL.csproj" />
+	<ProjectReference Include="..\UploadMusicBL\UploadMusicBL.csproj" />
   </ItemGroup>
 
 </Project>
