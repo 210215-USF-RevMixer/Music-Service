@@ -6,10 +6,10 @@ using UploadMusicModels;
 
 namespace UploadMusicBL
 {
-    public class UploadMusicBL : IUploadMusicBL
+    public class UploadedMusicBL : IUploadMusicBL
     {
         private IUploadMusicRepoDB _repo;
-        public UploadMusicBL(IUploadMusicRepoDB repo)
+        public UploadedMusicBL(IUploadMusicRepoDB repo)
         {
             _repo = repo;
         }

@@ -38,7 +38,7 @@ namespace UploadMusicREST
 
             services.AddDbContext<UploadMusicDBContext>(options => options.UseNpgsql(Configuration.GetConnectionString("UploadMusicDB")));
             services.AddScoped<IUploadMusicRepoDB, UploadMusicRepoDB>();
-            //services.AddScoped<IUploadMusicBL, UploadMusicBL>();
+            services.AddScoped<IUploadMusicBL, UploadMusicBL>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
