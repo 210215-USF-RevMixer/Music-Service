@@ -30,9 +30,5 @@ namespace MixerModels
         public bool IsApproved { get; set; }
         public bool IsLocked { get; set; }
 
-        public ICollection<MusicPlaylist> MusicPlaylists { get; set; }
-
-        public ICollection<Comments> Comments { get; set; }
-        public User User { get; set; }
     }
 }
