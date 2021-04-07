@@ -13,7 +13,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using UploadMusicModels;
 using UploadMusicDL;
-
+using UploadMusicBL;
 
 namespace UploadMusicREST
 {
@@ -38,7 +38,7 @@ namespace UploadMusicREST
 
             services.AddDbContext<UploadMusicDBContext>(options => options.UseNpgsql(Configuration.GetConnectionString("UploadMusicDB")));
             services.AddScoped<IUploadMusicRepoDB, UploadMusicRepoDB>();
-            services.AddScoped<IUploadMusicBL, UploadMusicBL>();
+            services.AddScoped<IUploadMusicBL, UploadedMusicBL>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
