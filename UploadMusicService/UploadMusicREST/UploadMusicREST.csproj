@@ -8,9 +8,4 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\UploadMusicBL\UploadMusicBL.csproj" />
-    <ProjectReference Include="..\UploadMusicModels\UploadMusicModels.csproj" />
-  </ItemGroup>
-
 </Project>

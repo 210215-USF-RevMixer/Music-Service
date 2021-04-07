@@ -6,15 +6,11 @@ using System.Threading.Tasks;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace UploadMusicService.Controllers
+namespace UploadMusicREST.Controllers
 {
-    /// <summary>
-    /// Rest API for uploading music 
-    /// </summary>
-    /// 
     [Route("api/[controller]")]
     [ApiController]
-    public class UploadMusicController : Controller
+    public class UploadMusicController : ControllerBase
     {
         // GET: api/<UploadMusicController>
         [HttpGet]

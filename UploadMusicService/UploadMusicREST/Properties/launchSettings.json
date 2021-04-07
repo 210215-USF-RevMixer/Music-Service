@@ -4,7 +4,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:52613",
+      "applicationUrl": "http://localhost:52824",
       "sslPort": 0
     }
   },
@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "WebApplication1": {
+    "UploadMusicREST": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,
