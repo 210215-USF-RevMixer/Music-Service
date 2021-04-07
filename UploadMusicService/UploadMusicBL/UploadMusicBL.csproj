@@ -1,7 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+	<ItemGroup>
+		<ProjectReference Include="..\UploadMusicModels\UploadMusicModels.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\UploadMusicDL\UploadMusicDL.csproj" />
+	</ItemGroup>
 </Project>

@@ -9,7 +9,7 @@ using System.Xml.Linq;
 
 namespace UploadMusicDL
 {
-    class UploadMusicRepoDB : IUploadMusicRepoDB
+    public class UploadMusicRepoDB : IUploadMusicRepoDB
     {
         private readonly UploadMusicDBContext _context;
 
