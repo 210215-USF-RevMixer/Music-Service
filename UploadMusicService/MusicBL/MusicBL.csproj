@@ -5,9 +5,9 @@
   </PropertyGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\UploadMusicModels\MusicModels.csproj" />
+		<ProjectReference Include="..\MusicModels\MusicModels.csproj" />
 	</ItemGroup>
 	<ItemGroup>
-		<ProjectReference Include="..\UploadMusicDL\MusicDL.csproj" />
+		<ProjectReference Include="..\MusicDL\MusicDL.csproj" />
 	</ItemGroup>
 </Project>

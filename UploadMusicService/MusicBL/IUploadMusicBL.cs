@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UploadMusicModels;
+using MusicModels;
 
-namespace UploadMusicBL
+namespace MusicBL
 {
     public interface IUploadMusicBL
     {

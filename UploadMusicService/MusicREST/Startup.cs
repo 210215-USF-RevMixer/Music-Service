@@ -11,9 +11,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using UploadMusicModels;
-using UploadMusicDL;
-using UploadMusicBL;
+using MusicModels;
+using MusicDL;
+using MusicBL;
 
 namespace UploadMusicREST
 {
@@ -37,7 +37,7 @@ namespace UploadMusicREST
             });
 
             services.AddDbContext<UploadMusicDBContext>(options => options.UseNpgsql(Configuration.GetConnectionString("UploadMusicDB")));
-            services.AddScoped<IUploadMusicRepoDB, UploadMusicRepoDB>();
+            services.AddScoped<IMusicRepoDB, UploadMusicRepoDB>();
             services.AddScoped<IUploadMusicBL, UploadedMusicBL>();
         }
 

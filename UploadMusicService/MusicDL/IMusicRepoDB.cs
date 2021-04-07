@@ -1,10 +1,10 @@
 ﻿using System.Threading.Tasks;
 using System.Collections.Generic;
-using UploadMusicModels;
+using MusicModels;
 
-namespace UploadMusicDL
+namespace MusicDL
 {
-    public interface IUploadMusicRepoDB
+    public interface IMusicRepoDB
     {
         Task<UploadMusic> AddUploadedMusicAsync(UploadMusic newUploadedMusic);
         Task<UploadMusic> DeleteUploadedMusicAsync(UploadMusic uploadedMusic2BDeleted);

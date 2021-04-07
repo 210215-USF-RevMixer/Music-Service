@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Reflection.Metadata;
 
-namespace UploadMusicModels
+namespace MusicModels
 {
     public class UploadMusic
     {

@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\UploadMusicModels\MusicModels.csproj" />
+    <ProjectReference Include="..\MusicModels\MusicModels.csproj" />
   </ItemGroup>
 
 </Project>

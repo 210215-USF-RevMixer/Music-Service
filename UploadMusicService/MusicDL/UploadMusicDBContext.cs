@@ -2,9 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using UploadMusicModels;
+using MusicModels;
 
-namespace UploadMusicDL
+namespace MusicDL
 {
     public class UploadMusicDBContext : DbContext
     {

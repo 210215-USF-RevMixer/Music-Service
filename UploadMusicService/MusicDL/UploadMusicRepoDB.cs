@@ -1,4 +1,4 @@
-﻿using UploadMusicModels;
+﻿using MusicModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,13 +7,13 @@ using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using System.Xml.Linq;
 
-namespace UploadMusicDL
+namespace MusicDL
 {
     /// <summary>
     /// This class as a whole has all the necessary functionality for uploading music object to our database with all the basic CRUD operations 
     /// with some special cases for the reading/get methods.
     /// </summary>
-    public class UploadMusicRepoDB : IUploadMusicRepoDB
+    public class UploadMusicRepoDB : IMusicRepoDB
     {
         private readonly UploadMusicDBContext _context;
 

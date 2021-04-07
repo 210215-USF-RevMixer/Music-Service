@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using UploadMusicDL;
-using UploadMusicModels;
+using MusicDL;
+using MusicModels;
 
-namespace UploadMusicBL
+namespace MusicBL
 {
     public class UploadedMusicBL : IUploadMusicBL
     {
         // Referencing UploadMusicDL
-        private IUploadMusicRepoDB _repo;
-        public UploadedMusicBL(IUploadMusicRepoDB repo)
+        private IMusicRepoDB _repo;
+        public UploadedMusicBL(IMusicRepoDB repo)
         {
             _repo = repo;
         }
