@@ -16,9 +16,11 @@ steps:
   inputs:
     SonarCloud: 'P3 sonarcloud'
     organization: '210215-usf-revmixer'
-    scannerMode: 'MSBuild'
-    projectKey: '210215-USF-RevMixer_Music-Service'
-    projectName: 'Music-Service'
+    scannerMode: 'CLI'
+    configMode: 'manual'
+    cliProjectKey: '210215-USF-RevMixer_Music-Service'
+    cliProjectName: 'Music-Service'
+    cliSources: 'UploadMusicService'
 
 - task: DotNetCoreCLI@2
   displayName: 'restore'
