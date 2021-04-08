@@ -13,6 +13,12 @@ namespace MusicDL
         Task<List<UploadMusic>> GetUploadedMusicByUserIDAsync(int userid);
         Task<UploadMusic> UpdateUploadedMusicAsync(UploadMusic uploadedMusic2BUpdated);
 
+        Task<PlayList> AddPlayListAsync(PlayList newPlaylist);
+        Task<PlayList> DeletePlayListAsync(PlayList playlist2BDeleted);
+        Task<PlayList> GetPlayListByIDAsync(int id);
+        Task<List<PlayList>> GetPlayListsAsync();
+        Task<PlayList> UpdatePlayListAsync(PlayList playlist2BUpdated);
+
         Task<MusicPlaylist> AddMusicPlaylistAsync(MusicPlaylist newMusicPlaylist);
         Task<MusicPlaylist> DeleteMusicPlaylistAsync(MusicPlaylist musicPlaylist2BDeleted);
         Task<MusicPlaylist> GetMusicPlaylistByIDAsync(int id);
