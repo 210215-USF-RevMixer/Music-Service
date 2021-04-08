@@ -41,13 +41,16 @@ namespace MusicDL
         // Getting all Uploaded music from database
         public async Task<List<UploadMusic>> GetUploadedMusicAsync()
         {
-            return await _context.UploadMusic.ToListAsync();
+            return await _context.UploadMusic
+                .Include(um => um.Comments)
+                .ToListAsync();
         }
 
         // Get a Uploaded music object by Id
         public async Task<UploadMusic> GetUploadedMusicByIDAsync(int id)
         {
             return await _context.UploadMusic
+                .Include(um => um.Comments)
                 .Where(um => um.Id == id)
                 .FirstOrDefaultAsync();
         }
@@ -56,6 +59,7 @@ namespace MusicDL
         public async Task<List<UploadMusic>> GetUploadedMusicByUserIDAsync(int userid)
         {
             return await _context.UploadMusic
+                .Include(um => um.Comments)
                 .Where(um => um.UserId == userid)
                 .ToListAsync();
         }
@@ -169,6 +173,62 @@ namespace MusicDL
             _context.ChangeTracker.Clear();
 
             return musicPlaylist2BUpdated;
+        }
+
+        // Adding a comment object to the database
+        public async Task<Comments> AddCommentAsync(Comments newComment)
+        {
+            await _context.Comments.AddAsync(newComment);
+            await _context.SaveChangesAsync();
+            return newComment;
+        }
+
+        // Deleting a comment object from the database
+        public async Task<Comments> DeleteCommentAsync(Comments comment2BDeleted)
+        {
+            _context.Comments.Remove(comment2BDeleted);
+            await _context.SaveChangesAsync();
+            return comment2BDeleted;
+        }
+
+        // Get a music playlist object by Id
+        public async Task<Comments> GetCommentByIDAsync(int id)
+        {
+            return await _context.Comments
+                .Include(c => c.UploadedMusic)
+                .Where(c => c.Id == id)
+                .FirstOrDefaultAsync();
+        }
+
+        // Getting all comments from database
+        public async Task<List<Comments>> GetCommentsAsync()
+        {
+            return await _context.Comments
+                .Include(c => c.UploadedMusic)
+                .AsNoTracking()
+                .ToListAsync();
+        }
+
+        // Updating a comment object by getting the old object, setting its information with the new object passed into it, and then saving it to the database
+        public async Task<Comments> UpdateCommentAsync(Comments comment2BUpdated)
+        {
+            Comments oldComment = await _context.Comments.Where(c => c.Id == comment2BUpdated.Id).FirstOrDefaultAsync();
+
+            _context.Entry(oldComment).CurrentValues.SetValues(comment2BUpdated);
+
+            await _context.SaveChangesAsync();
+
+            _context.ChangeTracker.Clear();
+            return comment2BUpdated;
+        }
+
+        // Get a music playlist object by music id
+        public async Task<List<Comments>> GetCommentsByMusicIDAsync(int id)
+        {
+            return await _context.Comments
+                .AsNoTracking()
+                .Where(c => c.UserId == id)
+                .ToListAsync();
         }
     }
 }

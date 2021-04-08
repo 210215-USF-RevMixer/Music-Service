@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MusicDL.Migrations
 {
     [DbContext(typeof(MusicDBContext))]
-    [Migration("20210408163415_Initial")]
+    [Migration("20210408172950_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
