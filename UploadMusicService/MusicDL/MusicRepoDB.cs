@@ -13,11 +13,11 @@ namespace MusicDL
     /// This class as a whole has all the necessary functionality for uploaded music, music playlist, playlist, and comment objects to our database with all the basic CRUD operations 
     /// with some special cases for the reading/get methods.
     /// </summary>
-    public class UploadMusicRepoDB : IMusicRepoDB
+    public class MusicRepoDB : IMusicRepoDB
     {
-        private readonly UploadMusicDBContext _context;
+        private readonly MusicDBContext _context;
 
-        public UploadMusicRepoDB(UploadMusicDBContext context)
+        public MusicRepoDB(MusicDBContext context)
         {
             _context = context;
         }

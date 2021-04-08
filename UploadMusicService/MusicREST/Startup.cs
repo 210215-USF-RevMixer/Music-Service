@@ -36,8 +36,8 @@ namespace UploadMusicREST
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "UploadMusicREST", Version = "v1" });
             });
 
-            services.AddDbContext<UploadMusicDBContext>(options => options.UseNpgsql(Configuration.GetConnectionString("UploadMusicDB")));
-            services.AddScoped<IMusicRepoDB, UploadMusicRepoDB>();
+            services.AddDbContext<MusicDBContext>(options => options.UseNpgsql(Configuration.GetConnectionString("UploadMusicDB")));
+            services.AddScoped<IMusicRepoDB, MusicRepoDB>();
             services.AddScoped<IUploadMusicBL, UploadedMusicBL>();
         }
 

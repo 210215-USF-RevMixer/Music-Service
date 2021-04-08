@@ -6,13 +6,13 @@ using MusicModels;
 
 namespace MusicDL
 {
-    public class UploadMusicDBContext : DbContext
+    public class MusicDBContext : DbContext
     {
-        public UploadMusicDBContext(DbContextOptions options) : base(options)
+        public MusicDBContext(DbContextOptions options) : base(options)
         {
         }
 
-        protected UploadMusicDBContext()
+        protected MusicDBContext()
         {
         }
 
@@ -29,9 +29,26 @@ namespace MusicDL
             modelBuilder.Entity<PlayList>()
                 .Property(x => x.Id)
                 .ValueGeneratedOnAdd();
+
             modelBuilder.Entity<MusicPlaylist>()
                 .Property(x => x.Id)
                 .ValueGeneratedOnAdd();
+
+            // relations
+            modelBuilder.Entity<PlayList>()
+               .HasMany(p => p.MusicPlaylist)
+               .WithOne(mp => mp.PlayList)
+               .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<UploadMusic>()
+                .HasMany(um => um.MusicPlaylists)
+                .WithOne(mp => mp.UploadMusic)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<UploadMusic>()
+                .HasMany(um => um.Comments)
+                .WithOne(c => c.UploadedMusic)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }
