@@ -33,7 +33,7 @@ namespace MusicREST.Controllers
         // GET api/<ValuesController>/5
         [HttpGet("{id}")]
         [Produces("application/json")]
-        public async Task<IActionResult> GetPlaylistByIDAsync(int id)
+        public async Task<IActionResult> GetMusicPlaylistByIDAsync(int id)
         {
             var mp = await _mixerBL.GetMusicPlaylistByIDAsync(id);
             if (mp == null) return NotFound();
@@ -61,7 +61,7 @@ namespace MusicREST.Controllers
 
         // DELETE api/<ValuesController>/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeletePlayListAsync(int id)
+        public async Task<IActionResult> DeleteMusicPlaylistAsync(int id)
         {
             try
             {
@@ -76,7 +76,7 @@ namespace MusicREST.Controllers
 
         // PUT api/<ValuesController>/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdatePlayListAsynchAsync(int id, [FromBody] MusicPlaylist musicPlaylist)
+        public async Task<IActionResult> UpdateMusicPlaylistAsynchAsync(int id, [FromBody] MusicPlaylist musicPlaylist)
         {
             try
             {
