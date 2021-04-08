@@ -73,6 +73,7 @@ namespace MusicDL
             return uploadedMusic2BUpdated;
         }
 
+        // Adding a playlist object to the database
         public async Task<PlayList> AddPlayListAsync(PlayList newPlayList)
         {
             await _context.PlayList.AddAsync(newPlayList);
@@ -80,6 +81,7 @@ namespace MusicDL
             return newPlayList;
         }
 
+        // Deleting a playlist from the database 
         public async Task<PlayList> DeletePlayListAsync(PlayList playList2BDeleted)
         {
             _context.PlayList.Remove(playList2BDeleted);
@@ -87,6 +89,7 @@ namespace MusicDL
             return playList2BDeleted;
         }
 
+        // Get playlist by id
         public async Task<PlayList> GetPlayListByIDAsync(int id)
         {
             return await _context.PlayList
@@ -96,6 +99,7 @@ namespace MusicDL
                 .FirstOrDefaultAsync();
         }
 
+        // Get all playlists
         public async Task<List<PlayList>> GetPlayListsAsync()
         {
             return await _context.PlayList
@@ -104,6 +108,7 @@ namespace MusicDL
                 .ToListAsync();
         }
 
+        // Updating a playlist object by getting the old object, setting its information with the new object passed into it, and then saving it to the database
         public async Task<PlayList> UpdatePlayListAsync(PlayList playList2BUpdated)
         {
             PlayList oldPlaylist =
@@ -115,7 +120,6 @@ namespace MusicDL
             _context.ChangeTracker.Clear();
             return playList2BUpdated;
         }
-
 
         // Adding a music playlist object to the database
         public async Task<MusicPlaylist> AddMusicPlaylistAsync(MusicPlaylist newMusicPlaylist)

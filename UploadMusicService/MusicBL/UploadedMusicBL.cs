@@ -61,6 +61,7 @@ namespace MusicBL
             return await _repo.UpdateUploadedMusicAsync(uploadedMusic2BUpdated);
         }
 
+        // Adding a new playlist
         public async Task<PlayList> AddPlayListAsync(PlayList newPlayList)
         {
             PlayList playList2Add = new PlayList();
@@ -70,26 +71,29 @@ namespace MusicBL
             return await _repo.AddPlayListAsync(playList2Add);
         }
 
+        // Deleting a playlist
         public async Task<PlayList> DeletePlayListAsync(PlayList playlist2BDeleted)
         {
             return await _repo.DeletePlayListAsync(playlist2BDeleted);
         }
 
+        // Retrieving a playlist by ID
         public async Task<PlayList> GetPlayListByIDAsync(int id)
         {
             return await _repo.GetPlayListByIDAsync(id);
         }
 
+        // Retrieving playlists
         public async Task<List<PlayList>> GetPlayListsAsync()
         {
             return await _repo.GetPlayListsAsync();
         }
 
+        // Updating a playlist
         public async Task<PlayList> UpdatePlayListAsync(PlayList playlist2BUpdated)
         {
             return await _repo.UpdatePlayListAsync(playlist2BUpdated);
         }
-  
 
         // Adding a new music playlist
         public async Task<MusicPlaylist> AddMusicPlaylistAsync(MusicPlaylist newMusicPlaylist)
