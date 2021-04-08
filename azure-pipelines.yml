@@ -18,8 +18,8 @@ steps:
     organization: '210215-usf-revmixer'
     scannerMode: 'CLI'
     configMode: 'manual'
-    cliProjectKey: '210215-USF-RevMixer_Music-Service'
-    cliProjectName: 'Music-Service'
+    cliProjectKey: '210215-USF-RevMixer_UploadMusic-Service'
+    cliProjectName: 'UploadMusic-Service'
     cliSources: 'UploadMusicService'
 
 - task: DotNetCoreCLI@2
