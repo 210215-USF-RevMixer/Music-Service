@@ -43,7 +43,7 @@ namespace MusicREST.Controllers
         // POST api/<MusicPlaylistController>
         [HttpPost]
         [Consumes("application/json")]
-        public async Task<IActionResult> AddMusicPlaylist([FromBody] MusicPlaylist musicPlaylist)
+        public async Task<IActionResult> AddMusicPlaylistAsync([FromBody] MusicPlaylist musicPlaylist)
         {
             try
             {
