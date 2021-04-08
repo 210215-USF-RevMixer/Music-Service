@@ -89,5 +89,36 @@ namespace MusicBL
         {
             return await _repo.UpdatePlayListAsync(playlist2BUpdated);
         }
+  
+
+        // Adding a new music playlist
+        public async Task<MusicPlaylist> AddMusicPlaylistAsync(MusicPlaylist newMusicPlaylist)
+        {
+            return await _repo.AddMusicPlaylistAsync(newMusicPlaylist);
+        }
+
+        // Deleting a music playlist
+        public async Task<MusicPlaylist> DeleteMusicPlaylistAsync(MusicPlaylist musicPlaylist2BDeleted)
+        {
+            return await _repo.DeleteMusicPlaylistAsync(musicPlaylist2BDeleted);
+        }
+
+        // Retrieving a music playlist by id
+        public async Task<MusicPlaylist> GetMusicPlaylistByIDAsync(int id)
+        {
+            return await _repo.GetMusicPlaylistByIDAsync(id);
+        }
+
+        // Retrieving music playlists
+        public async Task<List<MusicPlaylist>> GetMusicPlaylistsAsync()
+        {
+            return await _repo.GetMusicPlaylistsAsync();
+        }
+
+        // Updating a music playlist
+        public async Task<MusicPlaylist> UpdateMusicPlaylistAsync(MusicPlaylist musicPlaylist2BUpdated)
+        {
+            return await _repo.UpdateMusicPlaylistAsync(musicPlaylist2BUpdated);
+        }
     }
 }

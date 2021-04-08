@@ -21,5 +21,12 @@ namespace MusicBL
         Task<PlayList> GetPlayListByIDAsync(int id);
         Task<List<PlayList>> GetPlayListsAsync();
         Task<PlayList> UpdatePlayListAsync(PlayList playlist2BUpdated);
+
+        Task<MusicPlaylist> AddMusicPlaylistAsync(MusicPlaylist newMusicPlaylist);
+        Task<MusicPlaylist> DeleteMusicPlaylistAsync(MusicPlaylist musicPlaylist2BDeleted);
+        Task<MusicPlaylist> GetMusicPlaylistByIDAsync(int id);
+        Task<List<MusicPlaylist>> GetMusicPlaylistsAsync();
+        Task<MusicPlaylist> UpdateMusicPlaylistAsync(MusicPlaylist musicPlaylist2BUpdated);
+
     }
 }

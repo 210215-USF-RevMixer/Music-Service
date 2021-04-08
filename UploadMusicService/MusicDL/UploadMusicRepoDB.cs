@@ -10,7 +10,7 @@ using System.Xml.Linq;
 namespace MusicDL
 {
     /// <summary>
-    /// This class as a whole has all the necessary functionality for uploading music object to our database with all the basic CRUD operations 
+    /// This class as a whole has all the necessary functionality for uploaded music, music playlist, playlist, and comment objects to our database with all the basic CRUD operations 
     /// with some special cases for the reading/get methods.
     /// </summary>
     public class UploadMusicRepoDB : IMusicRepoDB
@@ -22,7 +22,7 @@ namespace MusicDL
             _context = context;
         }
 
-        //Adding a Upload music object to the database
+        // Adding a Upload music object to the database
         public async Task<UploadMusic> AddUploadedMusicAsync(UploadMusic newUploadedMusic)
         {
             await _context.UploadMusic.AddAsync(newUploadedMusic);
@@ -30,7 +30,7 @@ namespace MusicDL
             return newUploadedMusic;
         }
 
-        // Deleting a Upload music object to the database
+        // Deleting a Upload music object from the database
         public async Task<UploadMusic> DeleteUploadedMusicAsync(UploadMusic uploadedMusic2BDeleted)
         {
             _context.UploadMusic.Remove(uploadedMusic2BDeleted);
@@ -106,14 +106,65 @@ namespace MusicDL
 
         public async Task<PlayList> UpdatePlayListAsync(PlayList playList2BUpdated)
         {
-            PlayList oldPlaylist = await _context.PlayList.Where(p => p.Id == playList2BUpdated.Id).FirstOrDefaultAsync();
+            PlayList oldPlaylist =
+                await _context.PlayList.Where(p => p.Id == playList2BUpdated.Id).FirstOrDefaultAsync();
 
             _context.Entry(oldPlaylist).CurrentValues.SetValues(playList2BUpdated);
-
             await _context.SaveChangesAsync();
 
             _context.ChangeTracker.Clear();
             return playList2BUpdated;
+        }
+
+
+        // Adding a music playlist object to the database
+        public async Task<MusicPlaylist> AddMusicPlaylistAsync(MusicPlaylist newMusicPlaylist)
+        {
+            await _context.MusicPlaylist.AddAsync(newMusicPlaylist);
+            await _context.SaveChangesAsync();
+            return newMusicPlaylist;
+        }
+
+        // Deleting a music playlist object to the database
+        public async Task<MusicPlaylist> DeleteMusicPlaylistAsync(MusicPlaylist musicPlaylist2BDeleted)
+        {
+            _context.MusicPlaylist.Remove(musicPlaylist2BDeleted);
+            await _context.SaveChangesAsync();
+            return musicPlaylist2BDeleted;
+        }
+
+        // Get a music playlist object by Id
+        public async Task<MusicPlaylist> GetMusicPlaylistByIDAsync(int id)
+        {
+            return await _context.MusicPlaylist
+                .Include(mp => mp.UploadMusic)
+                .Include(mp => mp.PlayList)
+                .Where(mp => mp.Id == id)
+                .FirstOrDefaultAsync();
+        }
+
+        // Getting all music playlists from database
+        public async Task<List<MusicPlaylist>> GetMusicPlaylistsAsync()
+        {
+            return await _context.MusicPlaylist
+                .Include(mp => mp.UploadMusic)
+                .Include(mp => mp.PlayList)
+                .ToListAsync();
+        }
+
+        // Updating a music playlist object by getting the old object, setting its information with the new object passed into it, and then saving it to the database
+        public async Task<MusicPlaylist> UpdateMusicPlaylistAsync(MusicPlaylist musicPlaylist2BUpdated)
+        {
+            MusicPlaylist oldMusicPlaylist = await _context.MusicPlaylist.Where(mp => mp.Id == musicPlaylist2BUpdated.Id).FirstOrDefaultAsync();
+
+            _context.Entry(oldMusicPlaylist).CurrentValues.SetValues(musicPlaylist2BUpdated);
+
+
+            await _context.SaveChangesAsync();
+
+            _context.ChangeTracker.Clear();
+
+            return musicPlaylist2BUpdated;
         }
     }
 }
