@@ -10,15 +10,13 @@ using Serilog;
 
 namespace MusicREST.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class PlayListController : Controller
     {
-        [Route("api/[controller]")]
-        [ApiController]
-        public class PlaylistController : ControllerBase
-        {
-            private readonly IUploadMusicBL _mixerBL;
+        private readonly IUploadMusicBL _mixerBL;
 
-            public PlaylistController(IUploadMusicBL mixerBL)
+            public PlayListController(IUploadMusicBL mixerBL)
             {
                 _mixerBL = mixerBL;
             }
@@ -91,4 +89,4 @@ namespace MusicREST.Controllers
             }
         }
     }
-}
+
