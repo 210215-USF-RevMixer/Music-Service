@@ -12,6 +12,14 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'P3 sonarcloud'
+    organization: '210215-usf-revmixer'
+    scannerMode: 'MSBuild'
+    projectKey: '210215-USF-RevMixer_Music-Service'
+    projectName: 'Music-Service'
+
 - task: DotNetCoreCLI@2
   displayName: 'restore'
   inputs:
@@ -24,3 +32,10 @@ steps:
   inputs:
     command: 'build'
     projects: '**/*.sln'
+
+- task: SonarCloudAnalyze@1
+  displayName: run code analysis
+
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
