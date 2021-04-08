@@ -6,11 +6,11 @@ WORKDIR /app
 
 # copy the sln and csproj files first to restore them and the deps
 COPY *.sln ./
-COPY UploadMusicBL/*.csproj UploadMusicBL/
-COPY UploadMusicDL/*.csproj UploadMusicDL/
-COPY UploadMusicModels/*.csproj UploadMusicModels/
-COPY UploadMusicREST/*.csproj UploadMusicREST/
-COPY UploadMusicTest/*.csproj UploadMusicTest/
+COPY MusicBL/*.csproj MusicBL/
+COPY MusicDL/*.csproj MusicDL/
+COPY MusicModels/*.csproj MusicModels/
+COPY MusicREST/*.csproj MusicREST/
+#COPY MusicTest/*.csproj MusicTest/
 
 # Restores any dependencies the projects would need
 RUN dotnet restore
@@ -23,7 +23,7 @@ RUN dotnet restore
 COPY . ./
 
 # Publishes the application and its dependencies to a folder for deployment to a hosting system.
-RUN dotnet publish UploadMusicREST -c Release -o publish --no-restore
+RUN dotnet publish MusicREST -c Release -o publish --no-restore
 
 # we're doing a multi stage build. after we restore our app and create a deployable version of it using publish,
 # we leave the code base, and we only take the published version of it to the final image that will be built
@@ -37,6 +37,6 @@ WORKDIR /app
 COPY --from=build /app/publish ./
 
 # this is the process/executable the container will run
-CMD ["dotnet", "UploadMusicREST.dll"]
+CMD ["dotnet", "MusicREST.dll"]
 # this final image does not have the SDK, nor the source code,
 # only 1. what's in the base image, #2 my published build output.
