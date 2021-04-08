@@ -20,6 +20,8 @@ namespace MusicDL
         public DbSet<PlayList> PlayList { get; set; }
         public DbSet<MusicPlaylist> MusicPlaylist { get; set; }
 
+        public DbSet<Comments> Comments { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<UploadMusic>()

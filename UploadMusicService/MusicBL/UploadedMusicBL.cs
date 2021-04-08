@@ -120,5 +120,47 @@ namespace MusicBL
         {
             return await _repo.UpdateMusicPlaylistAsync(musicPlaylist2BUpdated);
         }
+
+        // Adding a new comment
+        public async Task<Comments> AddCommentAsync(Comments newComment)
+        {
+            Comments comment2Add = new Comments();
+            comment2Add.Comment = newComment.Comment;
+            comment2Add.CommentData = DateTime.Now;
+            comment2Add.Id = 0;
+            comment2Add.UploadMusicId = newComment.UploadMusicId;
+            comment2Add.UserId = newComment.UserId;
+            return await _repo.AddCommentAsync(comment2Add);
+        }
+
+        // Deleting a comment
+        public async Task<Comments> DeleteCommentAsync(Comments comment2BDeleted)
+        {
+            return await _repo.DeleteCommentAsync(comment2BDeleted);
+        }
+
+        // Retrieving a comment by id
+        public async Task<Comments> GetCommentByIDAsync(int id)
+        { 
+            return await _repo.GetCommentByIDAsync(id);
+        }
+
+        // Retrieving comments
+        public async Task<List<Comments>> GetCommentsAsync()
+        {
+            return await _repo.GetCommentsAsync();
+        }
+
+        // Updating a comment
+        public async Task<Comments> UpdateCommentAsync(Comments comment2BUpdated)
+        {
+            return await _repo.UpdateCommentAsync(comment2BUpdated);
+        }
+
+        // Retrieving a comment by Music id
+        public async Task<List<Comments>> GetCommentsByMusicIDAsync(int id)
+        {
+            return await _repo.GetCommentsByMusicIDAsync(id);
+        }
     }
 }

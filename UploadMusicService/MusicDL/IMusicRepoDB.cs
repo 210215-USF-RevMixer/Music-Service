@@ -24,5 +24,12 @@ namespace MusicDL
         Task<MusicPlaylist> GetMusicPlaylistByIDAsync(int id);
         Task<List<MusicPlaylist>> GetMusicPlaylistsAsync();
         Task<MusicPlaylist> UpdateMusicPlaylistAsync(MusicPlaylist musicPlaylist2BUpdated);
+
+        Task<Comments> AddCommentAsync(Comments newComment);
+        Task<Comments> DeleteCommentAsync(Comments comment2BDeleted);
+        Task<Comments> GetCommentByIDAsync(int id);
+        Task<List<Comments>> GetCommentsAsync();
+        Task<Comments> UpdateCommentAsync(Comments comment2BUpdated);
+        Task<List<Comments>> GetCommentsByMusicIDAsync(int id);
     }
 }
