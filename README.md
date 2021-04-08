@@ -12,27 +12,27 @@ Rest API service for adding, updating, and removing uploaded music files and pla
 <tr>
 <td>
 
-|Get / Post| Get / Put / Delete|
-|--|--|--|
+Get / Post| Get / Put / Delete
+----|----
 /api/UploadMusic | /api/UploadMusic/{id}
 
 </td><td>
 
-|Get / Post| Get / Put / Delete|
-|--|--|--|
+Get / Post| Get / Put / Delete
+----|----
 /api/ | /api/
 
 </td>
 <td>
 
-|Get / Post| Get / Put / Delete|
-|--|--|--|
+Get / Post| Get / Put / Delete
+----|----
 /api/ | /api/
 
 </td><td>
 
-|Get / Post| Get / Put / Delete|
-|--|--|--|
+Get / Post| Get / Put / Delete
+----|----
 /api/ | /api/
 
 </td>
