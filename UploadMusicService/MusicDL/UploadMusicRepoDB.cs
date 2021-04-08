@@ -72,5 +72,48 @@ namespace MusicDL
             _context.ChangeTracker.Clear();
             return uploadedMusic2BUpdated;
         }
+
+        public async Task<PlayList> AddPlayListAsync(PlayList newPlayList)
+        {
+            await _context.PlayList.AddAsync(newPlayList);
+            await _context.SaveChangesAsync();
+            return newPlayList;
+        }
+
+        public async Task<PlayList> DeletePlayListAsync(PlayList playList2BDeleted)
+        {
+            _context.PlayList.Remove(playList2BDeleted);
+            await _context.SaveChangesAsync();
+            return playList2BDeleted;
+        }
+
+        public async Task<PlayList> GetPlayListByIDAsync(int id)
+        {
+            return await _context.PlayList
+                .Include(p => p.MusicPlaylist)
+                .ThenInclude(mp => mp.UploadMusic)
+                .Where(p => p.Id == id)
+                .FirstOrDefaultAsync();
+        }
+
+        public async Task<List<PlayList>> GetPlayListsAsync()
+        {
+            return await _context.PlayList
+                .Include(p => p.MusicPlaylist)
+                .ThenInclude(mp => mp.UploadMusic)
+                .ToListAsync();
+        }
+
+        public async Task<PlayList> UpdatePlayListAsync(PlayList playList2BUpdated)
+        {
+            PlayList oldPlaylist = await _context.PlayList.Where(p => p.Id == playList2BUpdated.Id).FirstOrDefaultAsync();
+
+            _context.Entry(oldPlaylist).CurrentValues.SetValues(playList2BUpdated);
+
+            await _context.SaveChangesAsync();
+
+            _context.ChangeTracker.Clear();
+            return playList2BUpdated;
+        }
     }
 }

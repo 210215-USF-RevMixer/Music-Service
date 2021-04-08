@@ -17,12 +17,18 @@ namespace MusicDL
         }
 
         public DbSet<UploadMusic> UploadMusic { get; set; }
+        public DbSet<PlayList> PlayList { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<UploadMusic>()
-            .Property(x => x.Id)
-            .ValueGeneratedOnAdd();
+                .Property(x => x.Id)
+                .ValueGeneratedOnAdd();
+
+            modelBuilder.Entity<PlayList>()
+                .Property(x => x.Id)
+                .ValueGeneratedOnAdd();
+
         }
     }
 }
