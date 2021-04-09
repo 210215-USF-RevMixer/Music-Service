@@ -25,7 +25,7 @@ namespace MusicREST.Controllers
         }
         //GET api/<MusicPlaylistController>
         [HttpGet]
-        public async Task<IActionResult> GetAllMusicPlaylists()
+        public async Task<IActionResult> GetMusicPlaylistsAsync()
         {
             return Ok(await _mixerBL.GetMusicPlaylistsAsync());
         }

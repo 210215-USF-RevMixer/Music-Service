@@ -52,8 +52,6 @@ namespace MusicREST.Controllers
                 catch (Exception e)
                 {
                     Log.Logger.Error($"Error thrown: {e.Message}");
-                    /*                Console.WriteLine("Error Message - " + e.Message);
-                                    Console.WriteLine("Inner - " + e.InnerException.Message);*/
                     return StatusCode(400);
                 }
             }
