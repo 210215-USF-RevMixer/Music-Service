@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xunit;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+//using Microsoft.VisualStudio.TestTools.UnitTesting;
 using UploadMusicBL;
 using UploadMusicModels;
 using UploadMusicREST.Controllers;
@@ -38,8 +38,10 @@ namespace MixerTests
             var result = await uploadedMusicController.DeleteUploadedMusicAsync(uploadMusicID);
 
             //assert
-            Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(result, typeof(StatusCodeResult));
-            Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(500, ((StatusCodeResult)result).StatusCode);
+            Assert.IsType<StatusCodeResult>(result);
+            Assert.Equal(500, ((StatusCodeResult)result).StatusCode);
+            //Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(result, typeof(StatusCodeResult));
+            //  Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(500, ((StatusCodeResult)result).StatusCode);
         }
 
         [Fact]
@@ -55,7 +57,8 @@ namespace MixerTests
             var result = await uploadedMusicController.GetUploadedMusicByIDAsync(uploadMusicId);
 
             //assert
-            Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(result, typeof(OkObjectResult));
+            Assert.IsType<OkObjectResult>(result);
+            //Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(result, typeof(OkObjectResult));
             _uploadMusicBLMock.Verify(x => x.GetUploadedMusicByIDAsync(uploadMusicId));
         }
 
@@ -72,7 +75,8 @@ namespace MixerTests
             var result = await uploadedMusicController.DeleteUploadedMusicAsync(uploadedMusicID);
 
             //assert
-            Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(result, typeof(NoContentResult));
+            Assert.IsType<NoContentResult>(result);
+            // Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(result, typeof(NoContentResult));
         }
 
 
@@ -89,7 +93,8 @@ namespace MixerTests
             var result = await uploadedMusicController.GetUploadedMusicByIDAsync(userID);
 
             //assert
-            Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(result, typeof(OkObjectResult));
+            Assert.IsType<OkObjectResult>(result);
+            // Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(result, typeof(OkObjectResult));
         }
 
         [Fact]
@@ -105,7 +110,8 @@ namespace MixerTests
             var result = await uploadedMusicController.GetUploadedMusicByIDAsync(userID);
 
             //assert
-            Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(result, typeof(NotFoundResult));
+            Assert.IsType<NotFoundResult>(result);
+            // Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(result, typeof(NotFoundResult));
         }
 
         [Fact]
@@ -120,7 +126,8 @@ namespace MixerTests
             var result = await uploadedMusicController.GetUploadedMusicAsync();
 
             //assert
-            Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(result, typeof(OkObjectResult));
+            Assert.IsType<OkObjectResult>(result);
+            // Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(result, typeof(OkObjectResult));
         }
 
 
