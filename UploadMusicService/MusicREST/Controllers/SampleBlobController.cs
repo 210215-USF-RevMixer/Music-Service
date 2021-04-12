@@ -15,6 +15,7 @@ namespace MusicREST.Controllers
     public class SampleBlobController : ControllerBase
     {
         // POST api/SampleBlobConroller/5
+        [HttpPost, DisableRequestSizeLimit]
         public async Task<IActionResult> PostSampleToStorageAsync()
         {
             var file = Request.Form.Files[0];
@@ -23,7 +24,6 @@ namespace MusicREST.Controllers
             string fileType = file.ContentType;
             string containerEndpoint = "https://revmixerstoragep3.blob.core.windows.net/uploadsample";
             BlobContainerClient containerClient = new BlobContainerClient(new Uri(containerEndpoint), new DefaultAzureCredential(new DefaultAzureCredentialOptions { ExcludeSharedTokenCacheCredential = true }));
-
 
             try
             {
