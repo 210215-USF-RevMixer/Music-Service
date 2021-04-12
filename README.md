@@ -12,33 +12,61 @@ Rest API service for adding, updating, and removing uploaded music files and pla
 <tr>
 <td>
 
-Get | Post | Put | Delete
-----|----|----|----
-/api/UploadMusic | /api/UploadMusic | /api/UploadMusic/{id} | /api/UploadMusic/{uploadMusicID}
-/api/UploadMusic/{id} | |  | 
-/api/UploadMusic/User/{userID} | | | 
+Get | Post 
+----|----
+/api/UploadMusic | /api/UploadMusic 
+/api/UploadMusic/{id} | 
+/api/UploadMusic/User/{userID} |
 
 </td><td>
 
-Get | Post | Put | Delete
-----|----|----|----
-/api/ | /api/ | /api/ | /api/
-/api/ | /api/ | /api/ | /api/
+Get | Post 
+----|----
+/api/Playlist | /api/Playlist
+/api/Playlist/{id} | 
 
 </td>
 <td>
 
-Get | Post | Put | Delete
-----|----|----|----
-/api/ | /api/ | /api/ | /api/
-/api/ | /api/ | /api/ | /api/
+Get | Post 
+----|----
+/api/MusicPlaylist | /api/MusicPlaylist
+/api/MusicPlaylist/{id} | 
 
 </td><td>
 
-Get | Post | Put | Delete
-----|----|----|----
-/api/ | /api/ | /api/ | /api/
-/api/ | /api/ | /api/ | /api/
+Get | Post 
+----|----
+/api/Comments | /api/Comments
+/api/Comments/{id} | 
+
+</td>
+</tr> 
+<tr>
+<td>
+
+Put | Delete
+----|----
+/api/UploadMusic/{id} | /api/UploadMusic/{uploadMusicID}
+
+</td><td>
+
+Put | Delete
+----|----
+/api/Playlist/{id} | /api/Playlist/{id}
+
+</td>
+<td>
+
+Put | Delete
+----|----
+/api/MusicPlaylist/{id} | /api/MusicPlaylist/{id}
+
+</td><td>
+
+Put | Delete
+----|----
+/api/Comments/{id} | /api/Comments/{id}
 
 </td>
 </tr> 
