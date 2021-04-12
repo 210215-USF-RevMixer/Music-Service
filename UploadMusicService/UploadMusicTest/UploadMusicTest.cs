@@ -8,9 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 //using Microsoft.VisualStudio.TestTools.UnitTesting;
-using UploadMusicBL;
-using UploadMusicModels;
+
 using UploadMusicREST.Controllers;
+using MusicBL;
+using MusicModels;
 
 namespace MixerTests
 {

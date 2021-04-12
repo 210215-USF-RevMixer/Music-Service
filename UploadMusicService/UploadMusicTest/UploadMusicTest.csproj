@@ -24,6 +24,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MusicBL\MusicBL.csproj" />
+    <ProjectReference Include="..\MusicREST\MusicREST.csproj" />
     <ProjectReference Include="..\UploadMusicBL\UploadMusicBL.csproj" />
     <ProjectReference Include="..\UploadMusicREST\UploadMusicREST.csproj" />
   </ItemGroup>
