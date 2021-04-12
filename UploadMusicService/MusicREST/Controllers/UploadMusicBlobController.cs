@@ -13,7 +13,7 @@ namespace MusicREST.Controllers
     /// <summary>
     /// Rest API for sending music files to blob storage
     /// </summary>
-   
+
     [Route("api/[controller]")]
     [ApiController]
     public class UploadMusicBlobController : ControllerBase
@@ -22,11 +22,22 @@ namespace MusicREST.Controllers
         [HttpPost, DisableRequestSizeLimit]
         public async Task<IActionResult> PostSongToStorageAsync()
         {
+            //additional information is being sent in via the submitted form now - songName and isPrivate are both key/value pairs included
             var file = Request.Form.Files[0];
+            //we set the filename to store in our blob storage as a unique GUID plus the original file name
             string fileName = Guid.NewGuid().ToString() + file.FileName;
+            //we create a temporary localpath for our app service/container
+            //note: this path might need to be changed depending on how the kubernetes container works with local temporary files
             string localPath = @"C:\local\Temp\" + Guid.NewGuid().ToString();
+            //we grab the file content type to set content type on blob retrieval/metadata updating
             string fileType = file.ContentType;
+            //this is our storage container
             string containerEndpoint = "https://revmixerstoragep3.blob.core.windows.net/uploadmusic";
+
+            //here, we create a new blob container client giving the container URL, and we generate the "current users" credentials depending on if we're in a development
+            //environment vs production.
+            //the "DefaultAzureCredential" class instantiation pulls credentials from either the current logged in microsoft account if on a local environment
+            //or from the deployed app's IAM role if in production
             BlobContainerClient containerClient = new BlobContainerClient(new Uri(containerEndpoint), new DefaultAzureCredential(new DefaultAzureCredentialOptions { ExcludeSharedTokenCacheCredential = true }));
 
 
@@ -34,21 +45,26 @@ namespace MusicREST.Controllers
             {
                 //create container if it does not exists
                 await containerClient.CreateIfNotExistsAsync();
-
+                //if the file being uploaded exists
                 if (file.Length > 0)
                 {
+                    // use a filestream to write the consumed file to a local directory
                     using (var stream = System.IO.File.Create(localPath))
                     {
                         file.CopyTo(stream);
+                        //reset the streams position to the start of the filestream
                         stream.Position = 0;
 
+                        //call our blob client and upload the file, giving the filename that we created earlier, along with the file stream
                         containerClient.UploadBlob(fileName, stream);
 
+                        //then we retrieve the newly uploaded blob to process metadata about the blob content type, and reupload
                         var blob = containerClient.GetBlobClient(fileName);
-
+                        //reset the stream position to push the duplicate file again
                         stream.Position = 0;
                         blob.Upload(
                             stream,
+                            //set header information about the reuploaded blob
                             new BlobHttpHeaders
                             {
                                 ContentType = fileType
