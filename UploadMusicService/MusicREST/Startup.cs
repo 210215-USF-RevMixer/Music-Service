@@ -37,7 +37,7 @@ namespace UploadMusicREST
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "UploadMusicREST", Version = "v1" });
             });
-
+            //Cors policy
             services.AddCors(
                 options =>
                 {
