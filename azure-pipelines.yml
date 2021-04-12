@@ -53,10 +53,3 @@ steps:
 - task: SonarCloudPublish@1
   inputs:
     pollingTimeoutSec: '300'
-
-- task: Docker@2
-  inputs:
-    containerRegistry: 'TateDockerHub'
-    repository: 'revmix-project-service'
-    command: 'buildAndPush'
-    Dockerfile: '**/Dockerfile'
