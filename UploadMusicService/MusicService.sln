@@ -3,20 +3,22 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31005.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UploadMusicModels", "UploadMusicModels\UploadMusicModels.csproj", "{D8EA414D-38CA-494B-9793-CE5FE004F782}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MusicModels", "MusicModels\MusicModels.csproj", "{D8EA414D-38CA-494B-9793-CE5FE004F782}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UploadMusicDL", "UploadMusicDL\UploadMusicDL.csproj", "{C2A56269-E9FE-483E-8EBB-3B21745D445A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MusicDL", "MusicDL\MusicDL.csproj", "{C2A56269-E9FE-483E-8EBB-3B21745D445A}"
 	ProjectSection(ProjectDependencies) = postProject
 		{D8EA414D-38CA-494B-9793-CE5FE004F782} = {D8EA414D-38CA-494B-9793-CE5FE004F782}
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UploadMusicBL", "UploadMusicBL\UploadMusicBL.csproj", "{096481C3-4754-4E9F-9E66-D6278808742B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MusicBL", "MusicBL\MusicBL.csproj", "{096481C3-4754-4E9F-9E66-D6278808742B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UploadMusicREST", "UploadMusicREST\UploadMusicREST.csproj", "{CFB509B4-CA92-48B5-97F2-952E1F814AA7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MusicREST", "MusicREST\MusicREST.csproj", "{CFB509B4-CA92-48B5-97F2-952E1F814AA7}"
 	ProjectSection(ProjectDependencies) = postProject
 		{D8EA414D-38CA-494B-9793-CE5FE004F782} = {D8EA414D-38CA-494B-9793-CE5FE004F782}
 		{096481C3-4754-4E9F-9E66-D6278808742B} = {096481C3-4754-4E9F-9E66-D6278808742B}
 	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UploadMusicTest", "UploadMusicTest\UploadMusicTest.csproj", "{7E2727C0-D77D-449E-B033-674D9019AF61}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,6 +42,10 @@ Global
 		{CFB509B4-CA92-48B5-97F2-952E1F814AA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CFB509B4-CA92-48B5-97F2-952E1F814AA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CFB509B4-CA92-48B5-97F2-952E1F814AA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E2727C0-D77D-449E-B033-674D9019AF61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E2727C0-D77D-449E-B033-674D9019AF61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E2727C0-D77D-449E-B033-674D9019AF61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E2727C0-D77D-449E-B033-674D9019AF61}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -11,9 +11,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using UploadMusicModels;
-using UploadMusicDL;
-using UploadMusicBL;
+using MusicModels;
+using MusicDL;
+using MusicBL;
 
 namespace UploadMusicREST
 {
@@ -30,14 +30,28 @@ namespace UploadMusicREST
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(options =>
+            options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "UploadMusicREST", Version = "v1" });
             });
 
-            services.AddDbContext<UploadMusicDBContext>(options => options.UseNpgsql(Configuration.GetConnectionString("UploadMusicDB")));
-            services.AddScoped<IUploadMusicRepoDB, UploadMusicRepoDB>();
+            services.AddCors(
+                options =>
+                {
+                    options.AddDefaultPolicy(
+                        builder =>
+                        {
+                            builder.AllowAnyOrigin()
+                            .AllowAnyMethod()
+                            .AllowAnyHeader();
+                        });
+                });
+
+            services.AddDbContext<MusicDBContext>(options => options.UseNpgsql(Configuration.GetConnectionString("UploadMusicDB")));
+            services.AddScoped<IMusicRepoDB, MusicRepoDB>();
             services.AddScoped<IUploadMusicBL, UploadedMusicBL>();
         }
 
