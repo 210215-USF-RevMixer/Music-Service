@@ -45,6 +45,17 @@ namespace UploadMusicTest
             Assert.Equal(uploadMusicId, ((UploadMusic)((OkObjectResult)result).Value).Id);
             _mixerBLMock.Verify(x => x.GetUploadedMusicByIDAsync(uploadMusicId));
         }
+         [Fact]
+        public async Task GetUploadByUserIdShouldGetUploadMusic()
+        {
+            var uploadMusicId = 1;
+            var uploadMusic = new UploadMusic { UserId = uploadMusicId };
+            _mixerBLMock.Setup(x => x.GetUploadedMusicByIDAsync(It.IsAny<int>())).Returns(Task.FromResult(uploadMusic));
+            var uploadMusicController = new UploadMusicController(_mixerBLMock.Object);
+            var result = await uploadMusicController.GetUploadedMusicByIDAsync(uploadMusicId);
+            Assert.Equal(uploadMusicId, ((UploadMusic)((OkObjectResult)result).Value).UserId);
+            _mixerBLMock.Verify(x => x.GetUploadedMusicByIDAsync(uploadMusicId));
+        }
         [Fact]
         public async Task AddUploadMusicShouldAddUploadMusic()
         {
