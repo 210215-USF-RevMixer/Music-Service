@@ -135,11 +135,10 @@ UploadMusic|uploadMusic
 </tr>
 <tr>
 <td>
-
-Post |
-----|----
-/api/UploadMusicBlob |
-
+<table>
+<th>Post</th>
+<tr><td>/api/UploadMusicBlob</td></tr>
+</table>
 </td></tr> 
 </tr> 
 </table>
