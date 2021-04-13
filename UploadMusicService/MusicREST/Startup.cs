@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 using MusicModels;
 using MusicDL;
 using MusicBL;
+using Azure.Storage.Blobs;
 
 namespace UploadMusicREST
 {
@@ -53,6 +54,7 @@ namespace UploadMusicREST
             services.AddDbContext<MusicDBContext>(options => options.UseNpgsql(Configuration.GetConnectionString("UploadMusicDB")));
             services.AddScoped<IMusicRepoDB, MusicRepoDB>();
             services.AddScoped<IUploadMusicBL, UploadedMusicBL>();
+            services.AddScoped<BlobServiceClient>(sp => new BlobServiceClient(Configuration.GetConnectionString("BlobStorage")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
