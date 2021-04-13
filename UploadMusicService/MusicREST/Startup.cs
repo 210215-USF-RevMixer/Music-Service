@@ -65,14 +65,13 @@ namespace UploadMusicREST
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "UploadMusicREST v1"));
             }
 
-            app.UseRouting();
-
             app.UseCors(x =>
-            x
-            .AllowAnyOrigin()
-            .AllowAnyMethod()
-            .AllowAnyHeader()
+                x
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader()
             );
+            app.UseRouting();
 
             app.UseHttpsRedirection();
 
