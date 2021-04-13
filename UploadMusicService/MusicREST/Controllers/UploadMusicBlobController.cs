@@ -32,7 +32,7 @@ namespace MusicREST.Controllers
             //we grab the file content type to set content type on blob retrieval/metadata updating
             string fileType = file.ContentType;
             //this is our storage container
-            string containerEndpoint = "https://revmixerstoragep3.blob.core.windows.net/uploadmusic";
+            string containerEndpoint = "https://revmixerstorage2.blob.core.windows.net/uploadmusic";
 
             //here, we create a new blob container client giving the container URL, and we generate the "current users" credentials depending on if we're in a development
             //environment vs production.
