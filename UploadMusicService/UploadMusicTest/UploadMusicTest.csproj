@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.5" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.7.1" />
     <PackageReference Include="Microsoft.TestPlatform" Version="16.9.4" />
     <PackageReference Include="Moq" Version="4.16.1" />
@@ -26,8 +27,6 @@
   <ItemGroup>
     <ProjectReference Include="..\MusicBL\MusicBL.csproj" />
     <ProjectReference Include="..\MusicREST\MusicREST.csproj" />
-    <ProjectReference Include="..\UploadMusicBL\UploadMusicBL.csproj" />
-    <ProjectReference Include="..\UploadMusicREST\UploadMusicREST.csproj" />
   </ItemGroup>
 
 </Project>

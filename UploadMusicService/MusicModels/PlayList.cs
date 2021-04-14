@@ -44,7 +44,7 @@ namespace MusicModels
             get { return musicPlaylist; }
             set
             {
-                if (value.GetType() != typeof(MusicPlaylist))
+                if (value.GetType() != typeof(ICollection<MusicPlaylist>))
                 {
                     throw new ArgumentException("value");
                 }
