@@ -39,18 +39,7 @@ namespace MusicModels
 
         //this table specifies what uploaded music belongs to that playlist - apologies if it's a little confusing
         //to retrieve music through eager loading with ef core and our context, we will need to use an include(), then a thenInclude() to drill down
-        public ICollection<MusicPlaylist> MusicPlaylist
-        {
-            get { return musicPlaylist; }
-            set
-            {
-                if (value.GetType() != typeof(MusicPlaylist))
-                {
-                    throw new ArgumentException("value");
-                }
-                musicPlaylist = value;
-            }
-        }
+        public ICollection<MusicPlaylist> MusicPlaylist { get; set; }
 
     }
 }
