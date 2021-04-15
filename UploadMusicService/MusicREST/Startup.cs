@@ -11,9 +11,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using UploadMusicModels;
-using UploadMusicDL;
-
+using MusicModels;
+using MusicDL;
+using MusicBL;
+using Azure.Storage.Blobs;
 
 namespace UploadMusicREST
 {
@@ -30,15 +31,30 @@ namespace UploadMusicREST
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(options =>
+            options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "UploadMusicREST", Version = "v1" });
             });
+            //Cors policy
+            services.AddCors(
+                options =>
+                {
+                    options.AddDefaultPolicy(
+                        builder =>
+                        {
+                            builder.AllowAnyOrigin()
+                            .AllowAnyMethod()
+                            .AllowAnyHeader();
+                        });
+                });
 
-            services.AddDbContext<UploadMusicDBContext>(options => options.UseNpgsql(Configuration.GetConnectionString("UploadMusicDB")));
-            services.AddScoped<IUploadMusicRepoDB, UploadMusicRepoDB>();
-            //services.AddScoped<IUploadMusicBL, UploadMusicBL>();
+            services.AddDbContext<MusicDBContext>(options => options.UseNpgsql(Configuration.GetConnectionString("UploadMusicDB")));
+            services.AddScoped<IMusicRepoDB, MusicRepoDB>();
+            services.AddScoped<IUploadMusicBL, UploadedMusicBL>();
+            services.AddScoped<BlobServiceClient>(sp => new BlobServiceClient(Configuration.GetConnectionString("BlobStorage")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,7 +67,15 @@ namespace UploadMusicREST
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "UploadMusicREST v1"));
             }
 
+            app.UseCors(x =>
+                x
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+            );
             app.UseRouting();
+
+            app.UseHttpsRedirection();
 
             app.UseAuthorization();
 

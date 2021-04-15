@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Reflection.Metadata;
 
-namespace UploadMusicModels
+namespace MusicModels
 {
     public class UploadMusic
     {
@@ -12,6 +12,8 @@ namespace UploadMusicModels
         private DateTime uploadDate;
         private int likes;
         private int plays;
+        private ICollection<MusicPlaylist> musicPlaylists;
+        private ICollection<Comments> comments;
         private bool isPrivate;
         private bool isApproved;
         private bool isLocked;
@@ -116,6 +118,7 @@ namespace UploadMusicModels
                 isLocked = value;
             }
         }
-
+        public ICollection<MusicPlaylist> MusicPlaylists { get; set; }
+        public ICollection<Comments> Comments { get; set; }
     }
 }
