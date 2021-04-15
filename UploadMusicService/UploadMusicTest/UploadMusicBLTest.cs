@@ -68,7 +68,7 @@ namespace UploadMusicTest
         }
 
         [Fact]
-        public async Task AddCommentAsyncShouldAddTheCommentToTheRepo()
+        public async Task AddCommentAsyncShouldReturnTheComment()
         {
             var comment = new Comments() { Id = 5, Comment = "shrimp heaven now" };
             databaseMock.Setup(db => db.AddCommentAsync(It.IsAny<Comments>())).Returns(Task.FromResult<Comments>(comment));
@@ -79,6 +79,34 @@ namespace UploadMusicTest
             Assert.NotNull(result);
             Assert.Equal("shrimp heaven now", result.Comment);
             databaseMock.Verify(db => db.AddCommentAsync(It.IsAny<Comments>()));
+        }
+
+        [Fact]
+        public async Task DeleteCommentAsyncShouldReturnTheDeletedComment()
+        {
+            var comment = new Comments() { Id = 5, Comment = "shrimp heaven now" };
+            databaseMock.Setup(db => db.DeleteCommentAsync(It.IsAny<Comments>())).Returns(Task.FromResult<Comments>(comment));
+            var newMusicBL = new UploadedMusicBL(databaseMock.Object);
+
+            var result = await newMusicBL.DeleteCommentAsync(comment);
+
+            Assert.NotNull(result);
+            Assert.Equal("shrimp heaven now", result.Comment);
+            databaseMock.Verify(db => db.DeleteCommentAsync(It.IsAny<Comments>()));
+        }
+
+        [Fact]
+        public async Task UpdateCommentAsyncShouldReturnTheUpdatedComment()
+        {
+            var comment = new Comments() { Id = 5, Comment = "shrimp heaven now" };
+            databaseMock.Setup(db => db.UpdateCommentAsync(It.IsAny<Comments>())).Returns(Task.FromResult<Comments>(comment));
+            var newMusicBL = new UploadedMusicBL(databaseMock.Object);
+
+            var result = await newMusicBL.UpdateCommentAsync(comment);
+
+            Assert.NotNull(result);
+            Assert.Equal("shrimp heaven now", result.Comment);
+            databaseMock.Verify(db => db.UpdateCommentAsync(It.IsAny<Comments>()));
         }
 
 
