@@ -128,6 +128,20 @@ UploadMusic|uploadMusic
 </td>
 </tr>
 </table>
+<table>
+<tr><th><h3>UploadMusicBlob</h3></th></tr>
+<tr>
+<th><h4>Endpoints</h4></th>
+</tr>
+<tr>
+<td>
+<table>
+<th>Post</th>
+<tr><td>/api/UploadMusicBlob</td></tr>
+</table>
+</td></tr> 
+</tr> 
+</table>
 
 ### Requirements
 
