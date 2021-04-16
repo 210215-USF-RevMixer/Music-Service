@@ -47,7 +47,7 @@ namespace UploadMusicTest
         [Fact]
         public async Task AddPlayListAsyncShouldAddPlayList()
         {
-            var newPlayList = new PlayList {Id = 1};
+            var newPlayList = new PlayList {Name = "Test"};
             _musicBLMock.Setup(x => x.AddPlayListAsync(It.IsAny<PlayList>())).Returns(Task.FromResult<PlayList>(newPlayList));
             var newMusicBL = new UploadedMusicBL(_musicBLMock.Object);
             var result = await newMusicBL.AddPlayListAsync(newPlayList);
