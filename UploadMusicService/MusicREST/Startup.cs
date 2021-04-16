@@ -15,9 +15,11 @@ using MusicModels;
 using MusicDL;
 using MusicBL;
 using Azure.Storage.Blobs;
+using System.Diagnostics.CodeAnalysis;
 
 namespace UploadMusicREST
 {
+    [ExcludeFromCodeCoverage]
     public class Startup
     {
         public Startup(IConfiguration configuration)
