@@ -13,7 +13,7 @@ using UploadMusicREST.Controllers;
 using MusicBL;
 using MusicModels;
 
-namespace MixerTests
+namespace UploadMusicTest
 {
     public class UploadedMusicControllerTest
     {

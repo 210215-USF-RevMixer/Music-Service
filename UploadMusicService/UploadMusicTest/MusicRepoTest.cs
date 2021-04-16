@@ -125,7 +125,7 @@ namespace UploadMusicTests
                 Assert.Equal("Edit: I was actually second.", updatedComment.Comment);
             }
         }
-       #endregion
+        #endregion
         // MusicPlaylist
         #region
         [Fact]
@@ -206,7 +206,94 @@ namespace UploadMusicTests
             }
         }
         #endregion
-         // UploadMusic
+        //PlayList
+        #region 
+        [Fact]
+        public async void GetPlayListsAsyncShouldReturnAllPlayLists()
+        {
+            using (var context = new MusicDBContext(options))
+            {
+                IMusicRepoDB _repo = new MusicRepoDB(context);
+
+                var playLists = await _repo.GetPlayListsAsync();
+                Assert.Equal(2, playLists.Count);
+            }
+        }
+        [Fact]
+        public async void GetPlayListByIDAsyncShouldReturnPlayList()
+        {
+            using (var context = new MusicDBContext(options))
+            {
+                IMusicRepoDB _repo = new MusicRepoDB(context);
+                PlayList testPlayList = new PlayList();
+                testPlayList.Id = 4;
+                testPlayList.UserId = 1;
+                testPlayList.Name = "Songs to git gud too";
+                var newPlayList = await _repo.AddPlayListAsync(testPlayList);
+                var foundPlayList = await _repo.GetPlayListByIDAsync(4);
+                Assert.NotNull(foundPlayList);
+                Assert.Equal(4, foundPlayList.Id);
+            }
+        }
+        [Fact]
+        public async void AddPlayListAsyncShouldAddPlayList()
+        {
+            using (var context = new MusicDBContext(options))
+            {
+                IMusicRepoDB _repo = new MusicRepoDB(context);
+                PlayList testPlayList = new PlayList();
+                testPlayList.UserId = 1;
+                testPlayList.Name = "Songs to git gud too";
+                var newPlayList = await _repo.AddPlayListAsync(testPlayList);
+                Assert.NotNull(newPlayList);
+                Assert.Equal("Songs to git gud too", newPlayList.Name);
+            }
+        }
+        [Fact]
+        public async void DeletePlayListAsyncShouldDeletePlayList()
+        {
+            using (var context = new MusicDBContext(options))
+            {
+                IMusicRepoDB _repo = new MusicRepoDB(context);
+                PlayList testPlayList = new PlayList();
+                testPlayList.Id = 4;
+                testPlayList.UserId = 1;
+                testPlayList.Name = "Songs to git gud too";
+                var newPlayList = await _repo.AddPlayListAsync(testPlayList);
+                var deletePlayList = await _repo.DeletePlayListAsync(testPlayList);
+                using (var assertContext = new MusicDBContext(options))
+                {
+                    var result = assertContext.PlayList.Find(4);
+                    Assert.Null(result);
+                }
+            }
+
+        }
+        [Fact]
+        public async void UpdatePlayListAsyncShouldUpdatePlayList()
+        {
+            using (var context = new MusicDBContext(options))
+            {
+                IMusicRepoDB _repo = new MusicRepoDB(context);
+                PlayList testPlayList = new PlayList();
+                testPlayList.Id = 4;
+                testPlayList.UserId = 1;
+                testPlayList.Name = "Songs to git gud too";
+                ICollection<MusicPlaylist> playListMusicPlaylist = new List<MusicPlaylist>();
+                MusicPlaylist testMusicPlaylist = new MusicPlaylist();
+                testMusicPlaylist.Id = 4;
+                testMusicPlaylist.PlayListId = 2;
+                testMusicPlaylist.MusicId = 1;
+                playListMusicPlaylist.Add(testMusicPlaylist);
+                var newPlayList = await _repo.AddPlayListAsync(testPlayList);
+                var updatedPlayList = await _repo.UpdatePlayListAsync(testPlayList);
+                testPlayList.Name = "Git Gud";
+                Assert.Equal("Git Gud", updatedPlayList.Name);
+
+            }
+        }
+        #endregion
+        // UploadMusic
         [Fact]
         public async void GetUploadedMusicAsyncShouldReturnAllUploadedMusic()
         {
@@ -414,7 +501,7 @@ namespace UploadMusicTests
             }
         }
         #endregion
-        
+
 
     }
 
