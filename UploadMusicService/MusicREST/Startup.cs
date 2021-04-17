@@ -53,7 +53,7 @@ namespace UploadMusicREST
                         });
                 });
 
-            services.AddDbContext<MusicDBContext>(options => options.UseNpgsql(Configuration.GetConnectionString("UploadMusicDB")));
+            services.AddDbContext<MusicDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("UploadMusicDB")));
             services.AddScoped<IMusicRepoDB, MusicRepoDB>();
             services.AddScoped<IUploadMusicBL, UploadedMusicBL>();
             services.AddScoped<BlobServiceClient>(sp => new BlobServiceClient(Configuration.GetConnectionString("BlobStorage")));
