@@ -11,6 +11,7 @@ COPY MusicDL/*.csproj MusicDL/
 COPY MusicModels/*.csproj MusicModels/
 COPY MusicREST/*.csproj MusicREST/
 #COPY MusicTest/*.csproj MusicTest/
+COPY UploadMusicTest/*.csproj UploadMusicTest/
 
 # Restores any dependencies the projects would need
 RUN dotnet restore
