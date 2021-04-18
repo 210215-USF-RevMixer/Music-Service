@@ -62,7 +62,7 @@ namespace UploadMusicREST.Controllers
             catch (Exception e)
             {
                 Log.Logger.Error($"Error thrown uploading music: {e.Message}");
-                return StatusCode(400);
+                return Ok(e.Message);
             }
         }
         // PUT api/<UploadMusicController>/5
