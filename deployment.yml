@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: music-service-deployment
+spec:
+  selector:
+    matchLabels:
+      app: music-service
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: music-service
+    spec:
+      containers:
+      - name: music-service
+        image: wyspar123/musicservice:786
+        ports:
+        - containerPort: 80
+# kind: Service
+# apiVersion: v1
+# metadata:
+#   name: music-service
+# spec:
+#   selector:
+#     app: music-service
+#   ports:
+#   - protocol: TCP
+#     port: 80
+#     targetPort: 80
+#   type: LoadBalancer
