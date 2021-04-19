@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: music-service
-        image: wyspar123/musicservice:786
+        image: wyspar123/musicservice:#{Build.BuildId}#
         ports:
         - containerPort: 80
 # kind: Service
