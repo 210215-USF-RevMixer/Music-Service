@@ -26,7 +26,7 @@ namespace UploadMusicTests
         //Comment
         #region 
         [Fact]
-        public async void GetCommentsAsyncShouldReturnAllComments()
+        public async Task GetCommentsAsyncShouldReturnAllComments()
         {
             using (var context = new MusicDBContext(options))
             {
@@ -37,7 +37,7 @@ namespace UploadMusicTests
             }
         }
         [Fact]
-        public async void GetCommentByIDAsyncShouldReturnComment()
+        public async Task GetCommentByIDAsyncShouldReturnComment()
         {
             using (var context = new MusicDBContext(options))
             {
@@ -54,7 +54,7 @@ namespace UploadMusicTests
             }
         }
         [Fact]
-        public async void GetCommentByMusicIDAsyncShouldReturnComment()
+        public async Task GetCommentByMusicIDAsyncShouldReturnComment()
         {
             using (var context = new MusicDBContext(options))
             {
@@ -71,7 +71,7 @@ namespace UploadMusicTests
             }
         }
         [Fact]
-        public async void AddCommentAsyncShouldAddComment()
+        public async Task AddCommentAsyncShouldAddComment()
         {
             using (var context = new MusicDBContext(options))
             {
@@ -86,7 +86,7 @@ namespace UploadMusicTests
             }
         }
         [Fact]
-        public async void DeleteCommentAsyncShouldDeleteComment()
+        public async Task DeleteCommentAsyncShouldDeleteComment()
         {
             using (var context = new MusicDBContext(options))
             {
@@ -107,7 +107,7 @@ namespace UploadMusicTests
             }
         }
         [Fact]
-        public async void UpdateCommentAsyncShouldUpdateComment()
+        public async Task UpdateCommentAsyncShouldUpdateComment()
         {
             using (var context = new MusicDBContext(options))
             {
@@ -129,7 +129,7 @@ namespace UploadMusicTests
         // MusicPlaylist
         #region
         [Fact]
-        public async void GetMusicPlaylistsAsyncShouldReturnAllMusicPlaylists()
+        public async Task GetMusicPlaylistsAsyncShouldReturnAllMusicPlaylists()
         {
             using (var context = new MusicDBContext(options))
             {
@@ -140,7 +140,7 @@ namespace UploadMusicTests
             }
         }
         [Fact]
-        public async void GetMusicPlaylistByIDAsyncShouldReturnMusicPlaylist()
+        public async Task GetMusicPlaylistByIDAsyncShouldReturnMusicPlaylist()
         {
             using (var context = new MusicDBContext(options))
             {
@@ -156,7 +156,7 @@ namespace UploadMusicTests
             }
         }
         [Fact]
-        public async void AddMusicPlaylistAsyncShouldAddMusicPlaylist()
+        public async Task AddMusicPlaylistAsyncShouldAddMusicPlaylist()
         {
             using (var context = new MusicDBContext(options))
             {
@@ -170,7 +170,7 @@ namespace UploadMusicTests
             }
         }
         [Fact]
-        public async void DeleteMusicPlaylistAsyncShouldDeleteMusicPlaylist()
+        public async Task DeleteMusicPlaylistAsyncShouldDeleteMusicPlaylist()
         {
             using (var context = new MusicDBContext(options))
             {
@@ -190,7 +190,7 @@ namespace UploadMusicTests
 
         }
         [Fact]
-        public async void UpdateMusicPlaylistAsyncShouldUpdateMusicPlaylist()
+        public async Task UpdateMusicPlaylistAsyncShouldUpdateMusicPlaylist()
         {
             using (var context = new MusicDBContext(options))
             {
@@ -209,7 +209,7 @@ namespace UploadMusicTests
         //PlayList
         #region 
         [Fact]
-        public async void GetPlayListsAsyncShouldReturnAllPlayLists()
+        public async Task GetPlayListsAsyncShouldReturnAllPlayLists()
         {
             using (var context = new MusicDBContext(options))
             {
@@ -220,7 +220,7 @@ namespace UploadMusicTests
             }
         }
         [Fact]
-        public async void GetPlayListByIDAsyncShouldReturnPlayList()
+        public async Task GetPlayListByIDAsyncShouldReturnPlayList()
         {
             using (var context = new MusicDBContext(options))
             {
@@ -236,7 +236,7 @@ namespace UploadMusicTests
             }
         }
         [Fact]
-        public async void AddPlayListAsyncShouldAddPlayList()
+        public async Task AddPlayListAsyncShouldAddPlayList()
         {
             using (var context = new MusicDBContext(options))
             {
@@ -250,7 +250,7 @@ namespace UploadMusicTests
             }
         }
         [Fact]
-        public async void DeletePlayListAsyncShouldDeletePlayList()
+        public async Task DeletePlayListAsyncShouldDeletePlayList()
         {
             using (var context = new MusicDBContext(options))
             {
@@ -270,7 +270,7 @@ namespace UploadMusicTests
 
         }
         [Fact]
-        public async void UpdatePlayListAsyncShouldUpdatePlayList()
+        public async Task UpdatePlayListAsyncShouldUpdatePlayList()
         {
             using (var context = new MusicDBContext(options))
             {
@@ -295,7 +295,7 @@ namespace UploadMusicTests
         #endregion
         // UploadMusic
         [Fact]
-        public async void GetUploadedMusicAsyncShouldReturnAllUploadedMusic()
+        public async Task GetUploadedMusicAsyncShouldReturnAllUploadedMusic()
         {
             using (var context = new MusicDBContext(options))
             {
@@ -306,7 +306,7 @@ namespace UploadMusicTests
             }
         }
         [Fact]
-        public async void GetUploadedMusicByIDAsyncShouldReturnUploadedMusic()
+        public async Task GetUploadedMusicByIDAsyncShouldReturnUploadedMusic()
         {
             using (var context = new MusicDBContext(options))
             {
@@ -326,7 +326,7 @@ namespace UploadMusicTests
             }
         }
         [Fact]
-        public async void GetUploadedMusicByUserIDAsyncShouldReturnUploadedMusic()
+        public async Task GetUploadedMusicByUserIDAsyncShouldReturnUploadedMusic()
         {
             using (var context = new MusicDBContext(options))
             {
@@ -346,7 +346,7 @@ namespace UploadMusicTests
             }
         }
         [Fact]
-        public async void AddUploadedMusicAsyncShouldAddUploadedMusic()
+        public async Task AddUploadedMusicAsyncShouldAddUploadedMusic()
         {
             using (var context = new MusicDBContext(options))
             {
@@ -363,7 +363,7 @@ namespace UploadMusicTests
             }
         }
         [Fact]
-        public async void DeleteUploadedMusicAsyncShouldDeleteUploadedMusic()
+        public async Task DeleteUploadedMusicAsyncShouldDeleteUploadedMusic()
         {
             using (var context = new MusicDBContext(options))
             {
@@ -387,7 +387,7 @@ namespace UploadMusicTests
 
         }
         [Fact]
-        public async void UpdateUploadedMusicAsyncShouldUpdateUploadedMusic()
+        public async Task UpdateUploadedMusicAsyncShouldUpdateUploadedMusic()
         {
             using (var context = new MusicDBContext(options))
             {

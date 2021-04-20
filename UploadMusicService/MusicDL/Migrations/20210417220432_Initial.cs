@@ -1,6 +1,5 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
-using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace MusicDL.Migrations
 {
@@ -12,10 +11,10 @@ namespace MusicDL.Migrations
                 name: "PlayList",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    UserId = table.Column<int>(type: "integer", nullable: false),
-                    Name = table.Column<string>(type: "text", nullable: true)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -26,17 +25,17 @@ namespace MusicDL.Migrations
                 name: "UploadMusic",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    UserId = table.Column<int>(type: "integer", nullable: false),
-                    MusicFilePath = table.Column<string>(type: "text", nullable: true),
-                    Name = table.Column<string>(type: "text", nullable: true),
-                    UploadDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
-                    Likes = table.Column<int>(type: "integer", nullable: false),
-                    Plays = table.Column<int>(type: "integer", nullable: false),
-                    IsPrivate = table.Column<bool>(type: "boolean", nullable: false),
-                    IsApproved = table.Column<bool>(type: "boolean", nullable: false),
-                    IsLocked = table.Column<bool>(type: "boolean", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    MusicFilePath = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UploadDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Likes = table.Column<int>(type: "int", nullable: false),
+                    Plays = table.Column<int>(type: "int", nullable: false),
+                    IsPrivate = table.Column<bool>(type: "bit", nullable: false),
+                    IsApproved = table.Column<bool>(type: "bit", nullable: false),
+                    IsLocked = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -47,12 +46,12 @@ namespace MusicDL.Migrations
                 name: "Comments",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Comment = table.Column<string>(type: "text", nullable: true),
-                    CommentData = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
-                    UserId = table.Column<int>(type: "integer", nullable: false),
-                    UploadMusicId = table.Column<int>(type: "integer", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Comment = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CommentData = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    UploadMusicId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -69,11 +68,11 @@ namespace MusicDL.Migrations
                 name: "MusicPlaylist",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    PlayListId = table.Column<int>(type: "integer", nullable: false),
-                    UploadMusicId = table.Column<int>(type: "integer", nullable: true),
-                    MusicId = table.Column<int>(type: "integer", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    PlayListId = table.Column<int>(type: "int", nullable: false),
+                    UploadMusicId = table.Column<int>(type: "int", nullable: true),
+                    MusicId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {

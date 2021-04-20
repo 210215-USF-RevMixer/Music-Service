@@ -11,11 +11,11 @@ using Xunit;
 
 namespace UploadMusicTest
 {
-    public class UploadMusicBLTest {
+    public class CommentsBLTest {
 
         private Mock<IMusicRepoDB> databaseMock;
 
-        public UploadMusicBLTest()
+        public CommentsBLTest()
         {
             databaseMock = new Mock<IMusicRepoDB>();
         }

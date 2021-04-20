@@ -3,7 +3,7 @@ FROM mcr.microsoft.com/dotnet/sdk:5.0 as build
 
 # baby of mkdir and cd (it makes the directory if it doesn't exist and navigates to that directory)
 WORKDIR /app
-
+EXPOSE 8080
 # copy the sln and csproj files first to restore them and the deps
 COPY *.sln ./
 COPY MusicBL/*.csproj MusicBL/
@@ -11,6 +11,7 @@ COPY MusicDL/*.csproj MusicDL/
 COPY MusicModels/*.csproj MusicModels/
 COPY MusicREST/*.csproj MusicREST/
 #COPY MusicTest/*.csproj MusicTest/
+COPY UploadMusicTest/*.csproj UploadMusicTest/
 
 # Restores any dependencies the projects would need
 RUN dotnet restore
@@ -32,7 +33,7 @@ RUN dotnet publish MusicREST -c Release -o publish --no-restore
 FROM mcr.microsoft.com/dotnet/aspnet:5.0 as runtime
 
 WORKDIR /app
-
+#ENV ASPNETCORE_URLS=http://+:5000
 #from the earlier build, get the publish folder
 COPY --from=build /app/publish ./
 
