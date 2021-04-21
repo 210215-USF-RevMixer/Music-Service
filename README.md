@@ -143,14 +143,33 @@ UploadMusic|uploadMusic
 </tr> 
 </table>
 
-### Requirements
+### Technologies
+* C#
+* ASP.NET Core
+* Entity Framework Core
+* SQL Server
+* Moq/Xunit
+* Azure Blob Storage
 
 ### Setup
-
-### Testing
-
-### Configuration
-
+* Install [.NET 5.0+](https://dotnet.microsoft.com/download)
+* create ~/../Music-Service/MusicREST/appsettings.json containing:
+```
+{
+    "Logging": {
+        "LogLevel": {
+            "Default": "Information",
+            "Microsoft": "Warning",
+            "Microsoft.Hosting.Lifetime": "Information"
+        }
+  },
+    "AllowedHosts": "*",
+    "ConnectionStrings": {
+        "ProjectDB": "<Insert Valid Connection string to a SQL Database>",
+        "BlobStorage": "<Insert Valid Blob Storage Connection String>"
+    }
+}
+```
 
 
 
