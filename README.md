@@ -165,7 +165,7 @@ UploadMusic|uploadMusic
   },
     "AllowedHosts": "*",
     "ConnectionStrings": {
-        "ProjectDB": "<Insert Valid Connection string to a SQL Database>",
+        "UploadMusicDB": "<Insert Valid Connection string to a SQL Database>",
         "BlobStorage": "<Insert Valid Blob Storage Connection String>"
     }
 }
